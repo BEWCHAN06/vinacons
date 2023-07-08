@@ -118,3 +118,77 @@ li{
 .lessons li{
     color: #616161;
 }
+
+.nameweb{
+    display: none;
+   }
+
+/* responsive  */
+
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        height: 55px;
+    }
+   .lienhe{
+    display: none;
+   }
+
+   .imgcourse{
+    display: none;
+
+   }
+   .nameweb{
+    display: block;
+    color: blue;
+    font-size: 30px;
+    margin-top: 6px;
+     
+   }
+  }
+.img_sec3{
+
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+}
+
+.single-affordable{
+
+    text-align: center;
+}
+
+.single-affordable h3{
+
+    font-size: 20px;
+}
+
+.animaiton_hover_course:hover{
+    transform: translateY(-10px);
+    transition: all ease-in-out 0.75s;
+    cursor: pointer;
+}
+
+.contact{
+    position: fixed;
+    right: 27px;
+    top: 730px;
+    
+}
+.contact ul li {
+    font-size: 27px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    width: 50px;
+    border-radius: 35px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact ul li a{
+   
+    color: #fff;
+    
+}
