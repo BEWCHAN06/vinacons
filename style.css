@@ -1,0 +1,54 @@
+.color-black{
+    color: black;
+}
+.margin-top-200{
+    margin-top: 200px;
+}
+.container-fluid{
+    /* margin: 0px 100px 0px 100px; */
+}
+.p-color{
+    color:#616161;
+    font-family: Mulish;
+    line-height:28.8px;
+    margin: 0px 0px 10px;
+}
+.footer{
+    height: 100px;
+    
+}
+.selections{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 1%;
+}
+.lienhe{
+    position: absolute;
+    right: 20px;
+    top: 20%;
+    align-items: center;
+}
+.lienhe a{
+    justify-content: right;
+    background-color: #1030bf;
+    color: aliceblue;
+    padding: 15px 30px;
+    border-radius: 2px;
+}
+.banner-content {
+    color: black;
+    margin-top: 100px;
+}
+.bim-gif{
+    width: 100%;
+}
+.xemchitiet{
+    display: block;
+    margin-top: 50px;
+    width: 150px;
+    background-color: #1030bf;
+    color: aliceblue;
+    padding: 15px 30px;
+    border-radius: 2px;
+}
