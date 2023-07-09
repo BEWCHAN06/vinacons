@@ -16,8 +16,8 @@
   #section1 {padding-top:50px;color: #fff; background-color: #ffffff;}
   #section2 {padding-top:50px;color: #fff; background-color: #222222;}
   #section3 {padding-top:50px;color: #fff; background-color: #ffffff;}
-  #section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
-  #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+  #section41 {padding-top:50px; color: #fff; background-color: #222222;}
+  #section42 {padding-top:50px; color: #fff; background-color: #009688;}
   </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -90,7 +90,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="banner-content"></div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 content_slider">
           <h1 class="color-black margin-top-200">Khoá học BIM mô hình thông tin xây dựng từ cơ bảng đến nâng cao</h1>
           <p class="p-color">Khóa học bim sẽ giúp sinh viên nâng cao năng lực chuyên môn, cập nhật xu hướng công nghệ mới trong ngành xây dựng.Khóa học bim sẽ giúp sinh viên tăng cơ hội việc làm, vì nhu cầu về nhân lực bim đang ngày càng cao trên thị trường</p>
           <a class="xemchitiet" href="#">Xem Chi Tiết</a> 
@@ -409,17 +409,143 @@
 </div>
 
 
-
+//feed back
 <div id="section41" class="container-fluid">
-  <h1>Section 4 Submenu 1</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-</div>
-<div id="section42" class="container-fluid">
+  <div class="container">
+     
+    <div class="tieudekh">
+      <h1 style="text-align: center;font-size: 15px;">Các khóa học của chúng tôi</h1>
+      <h1 style="text-align: center;">Khóa học phổ biến</h1>
+      <img src="img/gạch.png" alt="">
+      <div class="">
+        <i class="iconcmt_section41 fa-solid fa-comment fa-beat"></i>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- data-ride="carousel" data-interval="1000" -->
+    <div id="myCarousel" class="carousel carousel_incHeight_centerdiv slide"  data-ride="carousel" data-interval="2000">
+      <!-- Indicators -->
+      <ol class="carousel-indicators carousel-indicators__top81">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    
+      </ol>
+  
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+
+       
+
+        <div class="item active"> 
+         <div class="row">
+              <div class="col-lg-3">
+                
+              </div>
+              <div class="col-lg-6">
+     
+                  <p  style="    text-align: center;">Một môn học thú vị và bổ ích, giúp tôi có thể thiết kế các công trình 3D một cách dễ dàng và nhanh chóng. Tôi thích cách giảng viên hướng dẫn từng bước và cho tôi thực hành nhiều trên các bài tập thực tế.</p>
+                  <p  style="    text-align: center; ">Khóa Hoc : Revit</p>
+                </div>
+              </div>
+
+              <div class="col-lg-3">
+                
+              </div>
+         </div> 
+            
+ 
+         <div class="item  "> 
+          <div class="row">
+               <div class="col-lg-3">
+                 
+               </div>
+               <div class="col-lg-6">
+      
+                <p style="  text-align: center;">Một môn học khó nhưng cũng rất hữu ích, giúp tôi hiểu được các nguyên lý và phương pháp thiết kế kết cấu dân dụng. Tôi cảm thấy phần mềm Midas Civil rất mạnh mẽ và chính xác, nhưng cũng đòi hỏi tôi phải nghiên cứu </p>
+          <p style="text-align: center; ">Khóa Hoc : Midas Civil</p>
+                 </div>
+               </div>
+ 
+               <div class="col-lg-3">
+                 
+               </div>
+          </div> 
+
+
+          <div class="item  "> 
+            <div class="row">
+                 <div class="col-lg-3">
+                   
+                 </div>
+                 <div class="col-lg-6">
+        
+                  <p style=" text-align: center;">Một môn học cơ bản nhưng không thể thiếu, giúp tôi nắm vững các kỹ năng vẽ kỹ thuật 2D và 3D. Tôi thấy phần mềm Autocad rất đơn giản và tiện lợi, cho phép tôi tạo ra các bản vẽ đẹp và chuyên nghiệp.</p>
+                  <p style="text-align: center; ">Khóa Hoc : Autocad</p>
+                   </div>
+                 </div>
+   
+                 <div class="col-lg-3">
+                   
+                 </div>
+            </div> 
+            <div class="item  "> 
+              <div class="row">
+                   <div class="col-lg-3">
+                     
+                   </div>
+                   <div class="col-lg-6">
+          
+                    <p style="text-align: center;">Một môn học mới mẻ và thú vị, giúp tôi có thể thiết kế các dự án địa hình và giao thông một cách sinh động và hiệu quả. Tôi thích cách phần mềm Civil 3D tự động cập nhật các đối tượng địa hình khi tôi thay đổi các thông số, giúp tôi tiết kiệm thời gian và công sức.</p>
+                    <p style="text-align: center;">Khóa Hoc : Civil 3D</p>
+                     </div>
+                   </div>
+     
+                   <div class="col-lg-3">
+                     
+                   </div>
+              </div> 
+        <!-- <div class="item" >
+          <p style=" margin: 0 190px;text-align: center;">Một môn học khó nhưng cũng rất hữu ích, giúp tôi hiểu được các nguyên lý và phương pháp thiết kế kết cấu dân dụng. Tôi cảm thấy phần mềm Midas Civil rất mạnh mẽ và chính xác, nhưng cũng đòi hỏi tôi phải nghiên cứu </p>
+          <p style="text-align: center;margin-top: 17px;">Khóa Hoc : Midas Civil</p>
+        </div>
+
+
+        <div class="item ">
+          <p style="margin: 0 190px;text-align: center;">Một môn học cơ bản nhưng không thể thiếu, giúp tôi nắm vững các kỹ năng vẽ kỹ thuật 2D và 3D. Tôi thấy phần mềm Autocad rất đơn giản và tiện lợi, cho phép tôi tạo ra các bản vẽ đẹp và chuyên nghiệp.</p>
+          <p style="text-align: center;margin-top: 17px;">Khóa Hoc : Autocad</p>
+        </div>
+
+        <div class="item ">
+          <p style="margin: 0 190px;text-align: center;">Một môn học mới mẻ và thú vị, giúp tôi có thể thiết kế các dự án địa hình và giao thông một cách sinh động và hiệu quả. Tôi thích cách phần mềm Civil 3D tự động cập nhật các đối tượng địa hình khi tôi thay đổi các thông số, giúp tôi tiết kiệm thời gian và công sức.</p>
+          <p style="text-align: center;margin-top: 17px;">Khóa Hoc : Civil 3D</p>
+        </div>  -->
+
+
+      </div>
+  
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  
+<!-- <div id="section42" class="container-fluid">
   <h1>Section 4 Submenu 2</h1>
   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
   <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-</div>
+</div> -->
 
 </body>
 </html>
