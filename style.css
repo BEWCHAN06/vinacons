@@ -103,7 +103,10 @@ li{
     transform: translateY(-10px);
     transition: all linear 0.75s;
 }
-
+.tieudekh{
+    text-align: center;
+    margin-bottom: 50px;
+}
 
 .single-course{
 
@@ -191,4 +194,22 @@ li{
    
     color: #fff;
     
+}
+
+.selections-title{
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    color: #001860;
+    font-weight: 600;
+}
+.single-affordable__image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    background-color: #edf5fc;
+    border-radius: 50%;
 }
