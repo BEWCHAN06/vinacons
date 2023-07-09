@@ -206,6 +206,12 @@ li{
     justify-content: center;
     align-items: center;
 }
+
+
+.center_div_number{
+    text-align:center;
+    margin-bottom: 47px;
+}
   }
 .img_sec3{
 
@@ -294,4 +300,6 @@ li{
 
 .item{
     font-size: 17px;
+   
 }
+ 
