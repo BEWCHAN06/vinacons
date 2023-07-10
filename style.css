@@ -20,6 +20,19 @@ li{
 .container-fluid{
     /* margin: 0px 100px 0px 100px; */
 }
+.footer-main{
+    background-color: white;
+}
+.navbar-inverse .navbar-nav>li>a {
+    font-weight: 600;
+    color: #222222;
+    font-size: 15px;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: #222222;
+    border: 1px solid #222222;
+    background-color: transparent;
+}
 .p-color{
     color:#616161;
     font-family: Mulish;
@@ -29,6 +42,9 @@ li{
 .footer{
     height: 100px;
     
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #222222;
 }
 .selections{
     display: flex;
@@ -45,15 +61,16 @@ li{
 .lienhe a{
     padding: 15px 30px;
     border-radius: 13px;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #222222;
+    color: #222222;
     font-size: 15px;
+    font-weight: 600;
     text-decoration: none;
 }
 .lienhe a:hover{
     border: none;
-    background-color: white;
-    color: #222222;
+    background-color: #222222;
+    color: white;
     font-weight: 600;
 }
 .banner-content {
@@ -184,10 +201,18 @@ li{
 .lessons li{
     color: #616161;
 }
-
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #001860;
+    background-color: transparent;
+}
 .nameweb{
     display: none;
-   }
+}
+.navbar-inverse .navbar-brand {
+    color: #1333bb;
+    font-weight: 500;
+}
+
 
 /* responsive  */
 
@@ -255,9 +280,12 @@ li{
 }
 
 .contact{
+    display: inline-block;
     position: fixed;
-    right: 10px;
-    bottom: 0px;
+    bottom: 4%;
+    right: 20px;
+    z-index: 100;
+    width: 40px;
     
 }
 .contact ul li {
