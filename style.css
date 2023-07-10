@@ -8,6 +8,10 @@ html{
     scroll-behavior: smooth;
     transition: all linear 2s;
 }
+body{
+    font-family: 'Poppins', sans-serif;
+
+}
 li{
     list-style-type: none;
 }
@@ -89,7 +93,7 @@ li{
     display: block;
     margin-top: 50px;
     width: 150px;
-    padding: 15px 30px;
+    padding: 15px 26px;
     border-radius: 15px;
     color: #222222;
     font-size: 15px;
@@ -380,3 +384,5 @@ li{
     font-weight: 700;
     font-size: 36px;
 }
+
+
