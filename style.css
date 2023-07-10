@@ -43,11 +43,18 @@ li{
     align-items: center;
 }
 .lienhe a{
-    justify-content: right;
-    background-color: #1030bf;
-    color: aliceblue;
     padding: 15px 30px;
-    border-radius: 2px;
+    border-radius: 13px;
+    border: 1px solid white;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+.lienhe a:hover{
+    border: none;
+    background-color: white;
+    color: #222222;
+    font-weight: 600;
 }
 .banner-content {
     color: black;
@@ -65,12 +72,18 @@ li{
     display: block;
     margin-top: 50px;
     width: 150px;
-    background-color: #1030bf;
-    color: aliceblue;
     padding: 15px 30px;
-    border-radius: 2px;
+    border-radius: 15px;
+    color: #222222;
+    font-size: 15px;
+    border: 2px solid #222222;
+    font-weight: 500;
+    text-decoration: none;
 }
-
+.xemchitiet:hover{
+    background-color: #222222;
+    color: white;
+}
 
 /* animaition */
 
@@ -180,6 +193,9 @@ li{
 
 
 @media only screen and (max-width: 600px) {
+    .margin-top-200{
+        margin-top: -50px;
+    }
     .footer {
         height: 55px;
     }
@@ -240,8 +256,8 @@ li{
 
 .contact{
     position: fixed;
-    right: 27px;
-    top: 730px;
+    right: 10px;
+    bottom: 0px;
     
 }
 .contact ul li {
