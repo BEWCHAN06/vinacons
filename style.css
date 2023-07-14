@@ -218,47 +218,7 @@ li{
 }
 
 
-/* responsive  */
 
-
-@media only screen and (max-width: 600px) {
-    .margin-top-200{
-        margin-top: -50px;
-    }
-    .footer {
-        height: 55px;
-    }
-   .lienhe{
-    display: none;
-   }
-
-   .imgcourse{
-    display: none;
-
-   }
-   .nameweb{
-    display: block;
-    color: blue;
-    font-size: 30px;
-    margin-top: 6px;
-     
-   }
-
-   .carousel_incHeight_centerdiv {
-    position: relative;
-    height: 274px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.center_div_number{
-    text-align:center;
-    margin-bottom: 47px;
-}
-
-  }
 
 .img_sec3{
 
@@ -386,3 +346,55 @@ li{
 }
 
 
+/*     midascivil_ml50xp; */
+.midascivil_ml50px{
+
+    margin-left: 619px
+}
+
+
+/* responsive  */
+
+
+@media only screen and (max-width: 600px) {
+    .margin-top-200{
+        margin-top: -50px;
+    }
+    .footer {
+        height: 55px;
+    }
+   .lienhe{
+    display: none;
+   }
+
+   .imgcourse{
+    display: none;
+
+   }
+   .nameweb{
+    display: block;
+    color: blue;
+    font-size: 30px;
+    margin-top: 6px;
+     
+   }
+
+   .carousel_incHeight_centerdiv {
+    position: relative;
+    height: 274px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    }
+
+
+    .center_div_number{
+    text-align:center;
+    margin-bottom: 47px;
+    }
+    .midascivil_ml50px{
+        margin-left: 50px;
+    }
+  }
