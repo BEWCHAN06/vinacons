@@ -398,3 +398,23 @@ li{
         margin-left: 50px;
     }
   }
+
+
+
+  .header__admin{
+    background-color: #0F30BF;
+    color: #fff;
+    font-size: 30px;
+    margin: 0;
+    padding: 6px;
+  }
+  .action__hocvien{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .search-button{
+    background-color: transparent ;
+    padding: 0 10px;
+    border: none;
+  }
