@@ -208,39 +208,39 @@
  
     <script>
       $(document).ready(function() {
- var counter = 1;
+      var counter = 1;
 
- // Khi nút "Add" được nhấp
- $('#addTabBtn').on('click', function() {
-   $('#addTabModal').modal('show'); // Mở modal
- });
+      // Khi nút "Add" được nhấp
+      $('#addTabBtn').on('click', function() {
+        $('#addTabModal').modal('show'); // Mở modal
+      });
 
- // Khi nút "Save" trong modal được nhấp
- $('#saveTabBtn').on('click', function() {
-   var tabName = $('#tabNameInput').val();
+      // Khi nút "Save" trong modal được nhấp
+      $('#saveTabBtn').on('click', function() {
+        var tabName = $('#tabNameInput').val();
 
-   if (tabName !== '') {
-     counter++;
+        if (tabName !== '') {
+          counter++;
 
-     // Tạo tab mới
-     var tabId = 'tab' + counter;
-     var tabTitle = 'Tab ' + counter;
-     var tabContent = 'Content ' + counter;
+          // Tạo tab mới
+          var tabId = 'tab' + counter;
+          var tabTitle = 'Tab ' + counter;
+          var tabContent = 'Content ' + counter;
 
-     // Thêm tab mới vào danh sách tabs
-     $('#v-pills-tab').append('<a class="nav-link" id="' + tabId + '-tab" data-toggle="pill" href="#' + tabId + '" role="tab" aria-controls="' + tabId + '" aria-selected="false">' + tabName + '</a>');
+          // Thêm tab mới vào danh sách tabs
+          $('#v-pills-tab').append('<a class="nav-link" id="' + tabId + '-tab" data-toggle="pill" href="#' + tabId + '" role="tab" aria-controls="' + tabId + '" aria-selected="false">' + tabName + '</a>');
 
-     // Thêm nội dung của tab mới
-     $('#v-pills-tabContent').append('<div class="tab-pane fade" id="' + tabId + '" role="tabpanel" aria-labelledby="' + tabId + '-tab">' + tabContent + '</div>');
+          // Thêm nội dung của tab mới
+          $('#v-pills-tabContent').append('<div class="tab-pane fade" id="' + tabId + '" role="tabpanel" aria-labelledby="' + tabId + '-tab">' + tabContent + '</div>');
 
-     // Kích hoạt tab mới
-     $('#' + tabId + '-tab').tab('show');
+          // Kích hoạt tab mới
+          $('#' + tabId + '-tab').tab('show');
 
-     $('#addTabModal').modal('hide'); // Đóng modal
-     $('#tabNameInput').val(''); // Xóa giá trị trong input
-   }
- });
-});
+          $('#addTabModal').modal('hide'); // Đóng modal
+          $('#tabNameInput').val(''); // Xóa giá trị trong input
+        }
+      });
+      });
 
 
      </script>
