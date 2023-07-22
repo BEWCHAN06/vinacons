@@ -1,73 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Vinacons</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <style>
-  body {
-    position: relative; 
-  }
-  #section1 {padding-top:50px;color: #fff; background-color: #ffffff;}
-  #section2 {padding-top:50px;color: #fff; background-color: #222222;}
-  #section3 {padding-top:50px;color: #fff; background-color: #ffffff;}
-  #section41 {padding-top:50px; color: #fff; background-color: #222222;}
-  #section42 {padding-top:50px; color: #fff; background-color: #ffffff;}
-  </style>
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid footer-main">
-    <div class="navbar-header footer">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand nameweb" href="#"><img style="width: 100px;"     alt="">VINACONS</a>
-      
-      <a class="navbar-brand imgcourse" href="#"><img style="width: 90px;"   src="img/logopng.png" alt=""></a>
-    </div>
-    <div class="selections">
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a class="sections" href="#section1">GIỚI THIỆU</a></li>
-          <li><a class="sections" href="#section2">KHÓA HỌC</a></li>
-          <li><a class="sections" href="#section3">VẤN ĐỀ</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">KHÁC<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a class="sections" href="#section41">Feedback</a></li>
-              <li><a class="sections" href="#section42">Kết quả</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="lienhe">
-        <a target="_blank" href="https://www.facebook.com/profile.php?id=100094087491044">Liên Hệ</a>
-      </div>
-    </div>
-    
-  </div>
-</nav>    
-
-
-
 
 <div class="contact"> 
 
   <ul>
     <li style="background-color: #007fff;">
-      <a target="_blank" href="http://m.me/100094087491044">
+      <a target="_blank" href="https://www.facebook.com/messages/t/109564778859033">
 
         <i class="fa-brands fa-facebook-messenger"></i>
       </a>
@@ -124,7 +60,7 @@
           <!-- 1 -->
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="AutoCAD.html">
+                <a href="index.php?act=autocad">
                   <img src="img/autor card.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Autocad" />
@@ -132,7 +68,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="AutoCAD.html">
+                  <a href="index.php?act=autocad">
                     <h4>Autocad </h4>
                   </a>
                   <ul class="rating">
@@ -162,7 +98,7 @@
             <!-- 2 -->
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="Revit.html">
+                <a href="index.php?act=revit">
                   <img src="img/revit.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Revit" />
@@ -170,7 +106,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="Revit.html">
+                  <a href="index.php?act=revit">
                     <h4>Revit</h4>
                   </a>
                   <ul class="rating">
@@ -201,7 +137,7 @@
 
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="Revit-nang-cao.html">
+                <a href="index.php?act=revitnangcao">
                   <img src="img/revit nang cao.png" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Revit Nâng Cao" />
@@ -209,7 +145,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="Revit-nang-cao.html">
+                  <a href="index.php?act=revitnangcao">
                     <h4>Revit Nâng Cao</h4>
                   </a>
                   <ul class="rating">
@@ -240,7 +176,7 @@
 
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="MidasCivil.html">
+                <a href="index.php?act=midascivil">
                   <img src="img/midasCivil.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Midas Civil" />
@@ -248,7 +184,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="MidasCivil.html">
+                  <a href="index.php?act=midascivil">
                     <h4>Midas Civil</h4>
                   </a>
                   <ul class="rating">
@@ -280,7 +216,7 @@
              <!-- 5-->
              <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="civil3d.html">
+                <a href="index.php?act=civil3d">
                   <img src="img/Civil 3D.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Civil 3D" />
@@ -288,7 +224,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="civil3d.html">
+                  <a href="index.php?act=civil3d">
                     <h4>Civil 3D</h4>
                   </a>
                   <ul class="rating">
@@ -318,7 +254,7 @@
             <!-- 5 -->
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="infraword.html">
+                <a href="index.php?act=infrawork">
                   <img src="img/Infrawork.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Infrawork" />
@@ -326,7 +262,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="infraword.html">
+                  <a href="index.php?act=infrawork">
                     <h4>Infrawork</h4>
                   </a>
                   <ul class="rating">
@@ -357,7 +293,7 @@
 
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="naviswork.html">
+                <a href="index.php?act=naviswork">
                   <img src="img/Naviswork.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Naviswork" />
@@ -365,7 +301,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="naviswork.html">
+                  <a href="index.php?act=naviswork">
                     <h4>Naviswork</h4>
                   </a>
                   <ul class="rating">
@@ -396,7 +332,7 @@
             <!-- 9 -->
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="tinhocvanphongxaydung.html">
+                <a href="index.php?act=tinhocvanphongxaydung">
                   <img src="img/tinhoc.png" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Tin Học Văn Phòng Xây Dựng" />
@@ -404,7 +340,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="tinhocvanphongxaydung.html">
+                  <a href="index.php?act=tinhocvanphongxaydung">
                     <h4>Tin Học Văn Phòng Xây Dựng</h4>
                   </a>
                   <ul class="rating">
@@ -435,7 +371,7 @@
             <!-- 9 -->
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 animaiton_hover_course">
               <div class="single-course">
-                <a href="boctachkhoiluong.html">
+                <a href="index.php?act=boctachkhoiluong">
                   <img src="img/boc tach.jpg" style="width: 100%;
                   aspect-ratio: 16/9;
                   object-fit: cover;" alt="Tin Học Văn Phòng Xây Dựng" />
@@ -443,7 +379,7 @@
                 <div class="course-content">
                   <!-- <span class="price">-50%</span>
                   <span class="tag">Khóa học</span> -->
-                  <a href="boctachkhoiluong.html">
+                  <a href="index.php?act=boctachkhoiluong">
                     <h4>Bóc Tách Khối Lượng </h4>
                   </a>
                   <ul class="rating">
