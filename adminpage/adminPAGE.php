@@ -25,18 +25,73 @@ if (mysqli_num_rows($resultchude) > 0) {
 }
 
 // Kiểm tra xem có dữ liệu được gửi từ form không
-if (isset($_POST['chude_ten'])) {
+// Kiểm tra xem có dữ liệu được gửi từ form không và phương thức là POST
+if (isset($_POST['chude_ten']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   $chude_ten = $_POST['chude_ten'];
 
-  // Thực hiện truy vấn để chèn tên chủ đề vào cơ sở dữ liệu
-  $sql = "INSERT INTO tbl_chude (tentabs,idchude) VALUES ('$chude_ten','$chude_ten')";
+  // Kiểm tra nếu chủ đề đã tồn tại trong cơ sở dữ liệu thì không thêm mới
+  $queryCheckExist = "SELECT * FROM tbl_chude WHERE tentabs = '$chude_ten'";
+  $resultCheckExist = mysqli_query($con, $queryCheckExist);
 
-  if (mysqli_query($con, $sql)) {
-    echo "Chủ đề đã được thêm thành công!";
+  if (mysqli_num_rows($resultCheckExist) > 0) {
+    $_SESSION['chude_them_thanh_cong'] = false;
+    echo "Chủ đề đã tồn tại trong cơ sở dữ liệu!";
   } else {
-    echo "Lỗi: " . mysqli_error($con);
+    // Thực hiện truy vấn để chèn tên chủ đề vào cơ sở dữ liệu
+    $sql = "INSERT INTO tbl_chude (tentabs, idchude) VALUES ('$chude_ten', '$chude_ten')";
+
+    if (mysqli_query($con, $sql)) {
+      $_SESSION['chude_them_thanh_cong'] = true;
+      echo "Chủ đề đã được thêm thành công!";
+    } else {
+      echo "Lỗi: " . mysqli_error($con);
+    }
   }
 }
+
+
+// if (isset($_POST['tentailieu']) && isset($_POST['noidungtailieu']) && isset($_POST['idchude'])) {
+//   $tentailieu = $_POST['tentailieu'];
+//   $noidungtailieu = $_POST['noidungtailieu'];
+//   $idchude = $_POST['idchude'];
+
+//   // Thực hiện truy vấn để chèn tài liệu vào cơ sở dữ liệu
+//   $sql = "INSERT INTO tbl_noidungchude (noidung, link, idchude) VALUES ('$tentailieu', '$noidungtailieu', '$idchude')";
+
+//   if (mysqli_query($con, $sql)) {
+//     echo "Tài liệu đã được thêm thành công!";
+//   } else {
+//     echo "Lỗi: " . mysqli_error($con);
+//   }
+// }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Kiểm tra nếu dữ liệu đã được gửi từ form
+  if (isset($_POST['tentailieu']) && isset($_POST['noidungtailieu']) && isset($_POST['idchude'])) {
+    $tentailieu = $_POST['tentailieu'];
+    $noidungtailieu = $_POST['noidungtailieu'];
+    $idchude = $_POST['idchude'];
+
+    // Kiểm tra nếu tài liệu đã tồn tại trong cơ sở dữ liệu thì không thêm mới
+    $queryCheckDocExist = "SELECT * FROM tbl_noidungchude WHERE noidung = '$tentailieu' AND idchude = '$idchude'";
+    $resultCheckDocExist = mysqli_query($con, $queryCheckDocExist);
+
+    if (mysqli_num_rows($resultCheckDocExist) > 0) {
+      echo "Tài liệu đã tồn tại trong chủ đề!";
+    } else {
+      // Thực hiện truy vấn để chèn tài liệu vào cơ sở dữ liệu
+      $sql = "INSERT INTO tbl_noidungchude (noidung, link, idchude) VALUES ('$tentailieu', '$noidungtailieu', '$idchude')";
+
+      if (mysqli_query($con, $sql)) {
+        echo "Tài liệu đã được thêm thành công!";
+      } else {
+        echo "Lỗi: " . mysqli_error($con);
+      }
+    }
+  }
+}
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -113,252 +168,246 @@ if (isset($_POST['chude_ten'])) {
      
     border: 1px solid black;
   } 
+
+  .table1 {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  text-align:center;
+
+}
+
+.table-row1 {
+  display: flex;
+  text-align:center;
+}
+
+.table-cell1 {
+  flex: 1;
+  text-align:center;
+
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+  /* custom tabs */
+  .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    background-color: #0f30bf;
+    color: #fff;
+}
+
+  .nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    color: #000;
+    background-color: #d9d9d9;
+}
+  /* custom tabs */
+ 
   </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid footer-main">
-          <div class="navbar-header footer">
-            <a class="navbar-brand nameweb" href="#"><img style="width: 100px;"     alt="">VINACONS</a>
-            <a class="navbar-brand imgcourse" href="#"><img style="width: 90px;"   src="../img/logo.jpg" alt=""></a>
+   <!-- Header Navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid footer-main">
+      <div class="navbar-header footer">
+        <a class="navbar-brand nameweb" href="#"><img style="width: 100px;" alt="">VINACONS</a>
+        <a class="navbar-brand imgcourse" href="#"><img style="width: 90px;" src="../img/logo.jpg" alt=""></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-2 mb-3">
+        <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Học Viên</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tài Liệu</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-10">
+        <div class="tab-content" id="myTabContent">
+          <!-- Tab Học viên -->
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <!-- Form search Học viên -->
+            <form action="" method="post">
+              <div class="action__hocvien">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="hocvienhomnay" id="hocvienhomnay" value="checkedValue">
+                    Học viên Hôm Nay
+                  </label>
+                </div>
+                <div class="">
+                  <input type="date" name="datehocvien" id="datehocvien">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="searchtheotenhocvien" id="searchtheotenhocvien" placeholder="Nhập tên học viên">
+                  <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Bảng hiển thị thông tin học viên -->
+            <h2 class="header__admin">Học Viên</h2>
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Tên</th>
+                  <th>Số điện thoại</th>
+                  <th>Email</th>
+                  <th>Tên Khóa Học</th>
+                  <th>Ngày Đăng Kí</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($_SESSION['hocvien'] as $hv): ?>
+                  <tr>
+                    <td><?php echo $hv['tenhv']; ?></td>
+                    <td><?php echo $hv['sodienthoai']; ?></td>
+                    <td><?php echo $hv['email']; ?></td>
+                    <td><?php echo $hv['tenkhoahoc']; ?></td>
+                    <td><?php echo $hv['ngaydangki']; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+
+
+
+          <!-- Tab Tài Liệu -->
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <!-- Hiển thị danh sách chủ đề -->
+            <h2 class="header__admin">Tài Liệu</h2>
+
+                  <!-- //nut them chude   -->
+                  <button type="button" style="margin:30px 0;" class="btn btn-primary" data-toggle="modal" data-target="#themchudemoi">Thêm chủ đề mới</button>
+
+                  <!-- Button trigger modal -->
+                  
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="themchudemoi" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                        <h3>Thêm chủ đề mới</h3>
+                          <form action="" method="post">
+                            <div class="form-group">
+                              <label for="chude_ten">Tên chủ đề:</label>
+                              <input type="text" class="form-control" id="chude_ten" name="chude_ten">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="saveTabBtn">Thêm chủ đề</button>
+                          </form>
+
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
+
+                  <div class="row">
+    <!-- Tabs danh sách chủ đề -->
+    <div class="col-md-3">
+      <ul class="nav nav-tabs flex-column">
+        <?php foreach ($datachude as $chude): ?>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($chude === reset($datachude)) ? 'active' : ''; ?>" id="chude-<?php echo $chude['idchude']; ?>" data-toggle="tab" href="#chude-content-<?php echo $chude['idchude']; ?>" role="tab" aria-controls="chude-<?php echo $chude['idchude']; ?>" aria-selected="false"><?php echo $chude['tentabs']; ?></a>
+          </li>
+        <?php endforeach; ?>
+        <!-- <li class="nav-item">
+          <a class="nav-link" id="add-chude-tab" data-toggle="tab" href="#add-chude-content" role="tab" aria-controls="add-chude" aria-selected="false">Thêm chủ đề</a>
+        </li> -->
+      </ul>
+    </div>
+
+    <!-- Nội dung tài liệu cho từng chủ đề -->
+    <div class="col-md-9">
+      <div class="tab-content">
+        <?php foreach ($datachude as $chude): ?>
+          <div class="tab-pane fade <?php echo ($chude === reset($datachude)) ? 'show active' : ''; ?>" id="chude-content-<?php echo $chude['idchude']; ?>" role="tabpanel" aria-labelledby="chude-<?php echo $chude['idchude']; ?>">
+            <h3><?php echo $chude['tentabs']; ?></h3>
+
+            <!-- Form thêm tài liệu -->
+            <form action="" method="post">
+              <div class="form-group">
+                <label for="tentailieu">Tên tài liệu:</label>
+                <input type="text" class="form-control" id="tentailieu" name="tentailieu">
+              </div>
+              <div class="form-group">
+                <label for="noidungtailieu">Nội dung tài liệu:</label>
+                <textarea class="form-control" id="noidungtailieu" name="noidungtailieu" rows="4"></textarea>
+              </div>
+              <input type="hidden" name="idchude" value="<?php echo $chude['idchude']; ?>">
+              <button type="submit" class="btn btn-primary">Thêm tài liệu</button>
+            </form>
+
+            <!-- Hiển thị danh sách tài liệu -->
+            <h4>Danh sách tài liệu:</h4>
+            <ul>
+            <?php
+                    $querytailieu = "SELECT * FROM tbl_noidungchude WHERE idchude = '".$chude['idchude']."'";
+                    $resulttailieu = mysqli_query($con, $querytailieu);
+                    echo '<div class="table1">';
+                    echo '<div class="table-row1 header">';
+                  echo '<div style="font-weight:700" class="table-cell1">Tên tài liệu</div>';
+                  echo '<div style="font-weight:700" class="table-cell1">Nội dung tài liệu</div>';
+                  echo '</div>';
+                    while ($tailieu = mysqli_fetch_assoc($resulttailieu)) {
+                      // echo "<li>";
+                      // echo "Tên tài liệu: " . $tailieu['noidung'] . "<br>";
+                      // echo "Nội dung: " . $tailieu['link'];
+                      // echo "</li>";
+
+                      echo '<div class="table-row1">';
+                      echo '<div class="table-cell1">' . $tailieu['noidung'] . '</div>';
+                      echo '<div class="table-cell1"> <a href="' . $tailieu['link'] . '"> ' . $tailieu['link'] . '</a> </div>';
+                      echo '</div>';
+                      
+                      
+                    }
+                    echo '</div>';
+                    ?>
+            </ul>
+          </div>
+        <?php endforeach; ?>
+
+              <!-- Nội dung cho nút "Thêm chủ đề" -->
+               
+            </div>
           </div>
         </div>
-    </nav>
-
-    <div class="container-fluid">
-        
- 
-      <div class="row">
-        <div class="col-md-2 mb-3">
-            <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Học Viên</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tài Liệu</a>
-      </li>
-      
-    </ul>
-        </div>
-    
-    <div class="col-md-10">
-        <div class="tab-content" id="myTabContent">
-        <!-- Học viên -->
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        
-        <!-- form search Học viên -->
-        <!-- <form action="" method="post">
-                    <div class="action__hocvien">
-
-
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="hocvienhomnay" id="" value="checkedValue" >
-                       Học viên Hôm Nay
-                      </label>
-                    </div>
-
-                    <div class="">
-                        <input type="date" name="datehocvien" id="">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" name="searchtheotenhocvien" placeholder="Nhập tên học viên">
-                        <button type="submit" class="search-button">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                     
-                        </button>
-                      </div>
-                </div>
-            </form> -->
-            <form action="" method="post">
-    <div class="action__hocvien">
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="hocvienhomnay" id="hocvienhomnay" value="checkedValue">
-                Học viên Hôm Nay
-            </label>
-        </div>
-        <div class="">
-            <input type="date" name="datehocvien" id="">
-        </div>
-        <div class="form-group">
-            <input type="text" name="searchtheotenhocvien" placeholder="Nhập tên học viên">
-            <button type="submit" class="search-button">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
-    </div>
-</form>
-           <!--  -->
-        <h2 class="header__admin">Học Viên</h2>
-      
-        <!-- table hoc vien -->
-        <table style="width: 100%;text-align: center;">
-            <thead>
-              <tr>
-                <th>Tên</th>
-                <th>Số điện thoại </th>
-                <th>Email </th>
-                <th>Tên Khóa Học </th>
-                <th>Ngày Đăng Kí</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-              </tr> -->
-              
-             <?php
-                foreach ($_SESSION['hocvien'] as $hv  ) {
-                 echo'
-                 <tr>
-                <td>'.$hv['hovaten'].'</td>
-                <td>'.$hv['phone'].'</td>
-                <td>'.$hv['email'].'</td>
-                <td>'.$hv['tenkhoahoc'].'</td>
-                <td>'.$hv['datetimee'].'</td>
-              </tr> 
-                 ';
-                }
-             ?>
-            </tbody>
-          </table>
       </div>
-
-
-    <!-- Tài Liệu -->
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div style="display: flex;" class="">
-
-
-                        <h2 style="width: 27%;" class="header__admin">Chủ đề</h2>
-                        <h2 style="    width: 73%;" class="header__admin">Tài Liệu</h2>
-                </div>
-            
-
-                <div class="content__tailieu">
-
-                    <!-- start -->
- 
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-3">
-
-                          <!-- tab chủ đề -->
-                          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="tab1-tab" data-toggle="pill" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Tab 1</a>
-                          </div>
-                          <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#addTabModal" id="addTabBtn">Thêm Chủ Đề</button>
-
-
-
-                        </div>
-                        <div class="col-9">
-
-                        <!-- nội dung tabs tài liệu -->
-                          <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
-
-                       
-                              
-                               <div class="table">
-                                      <div class="row">
-                                        <div style="width:30%"  class="cell">Tiêu đề cột 1</div>
-                                        <div style="width:70%" class="cell">Tiêu đề cột 2</div>
-                                      </div>
-
-                                      <button type="button" data-toggle="modal" data-target="#modelId" class="w-100 mt-2 btn btn-primary">Thêm tài liệu</button>
-
-
-                                        <!-- Button trigger modal -->
-                                         
-                                        
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                          <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <h5 class="modal-title">Thêm tài liệu form</h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                              </div>
-                                              <div class="modal-body">
-                                                  <form action="" method="post">
-
-                                                     <div>
-                                                          <label for="">Tên tài liệu</label>
-                                                            <input type="text" name="tentailieu" id="">
-                                                     </div>
-                                                    
-                                                     <div>
-                                                          <label for="">Nội dung tài liệu</label>
-                                                          <input type="text" name="noidungtailieu" id="">
-
-                                                     </div>
-                                                     
-                                                      <input type="submit" value="Lưu">
-
-                                                  </form>
-                                              </div>
-                                             
-                                            </div>
-                                          </div>
-                                        </div>
-                               </div>
-
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Modal tên chủ đề  -->
-                    
-                    
-                      
-                      <div class="modal fade" id="addTabModal" tabindex="-1" role="dialog" aria-labelledby="addTabModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h5 class="modal-title" id="addTabModalLabel">Thêm Chủ Đề Mới</h5>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                      </button>
-                                  </div>
-                                  <div class="modal-body">
-                                      <form id="addTabForm">
-                                          <div class="form-group">
-                                              <label for="chude_ten">Tên chủ đề:</label>
-                                              <input type="text" class="form-control" id="chude_ten" name="chude_ten" required>
-                                          </div>
-                                      </form>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                      <button type="button" class="btn btn-primary" id="saveTabBtn">Lưu</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                    <!-- end -->
-
-
-                    
-                </div>
-            </div>
-        </div>
-      </div>
-
     </div>
+  </div>
  
 
     <!-- script hoc vien page  -->
@@ -455,7 +504,7 @@ if (isset($_POST['chude_ten'])) {
     <!-- script tailieu page -->
    
     <script>
-        $(document).ready(function () {
+         $(document).ready(function () {
             // Hiển thị các tabs từ dữ liệu chủ đề
             function displayTabs(data) {
                 data.forEach(function (chude) {
@@ -463,10 +512,17 @@ if (isset($_POST['chude_ten'])) {
                     var tabTitle = chude.tentabs;
 
                     // Thêm tab vào danh sách tabs
-                    $('#v-pills-tab').append('<a class="nav-link" id="' + tabId + '-tab" data-toggle="pill" href="#' + tabId + '" role="tab" aria-controls="' + tabId + '" aria-selected="false">' + tabTitle + '</a>');
+                    $('#v-pills-tab').append('<a class="nav-link active id="' + tabId + '-tab" data-toggle="pill" href="#' + tabId + '" role="tab" aria-controls="' + tabId + '" aria-selected="false">' + tabTitle + '</a>');
 
+
+                    var htmlContent = `
+                      <div class="row">
+                        <div style="width:30%" class="cell">Tiêu đề cột 1</div>
+                        <div style="width:70%" class="cell">Tiêu đề cột 2</div>
+                      </div>
+                    `;
                     // Thêm nội dung của tab mới
-                    $('#v-pills-tabContent').append('<div class="tab-pane fade" id="' + tabId + '" role="tabpanel" aria-labelledby="' + tabId + '-tab">Nội dung của tab ' + tabTitle + '</div>');
+                    $('#v-pills-tabContent').append('<div class="tab-pane fade" id="' + tabId + '" role="tabpanel" aria-labelledby="' + tabId + '-tab">'+ htmlContent + '</div>');
                 });
             }
 
@@ -497,6 +553,7 @@ if (isset($_POST['chude_ten'])) {
                 }
             });
         });
+    </script>
     </script>
 </body>
 </html>
